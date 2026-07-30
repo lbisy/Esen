@@ -663,59 +663,22 @@ img {
   min-height: 24px;
 }
 
-.trust-strip {
+.about-section,
+.resources-section {
+  width: min(100% - 48px, 1380px);
+}
+
+.about-section {
+  margin: 120px auto 0;
+  padding: 96px 0;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 100px;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
 
-.trust-strip > div {
-  min-height: 96px;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: center;
-  gap: 15px;
-  padding: 18px 24px 18px 10px;
-}
-
-.trust-strip > div:not(:last-child) {
-  border-right: 1px solid var(--line);
-}
-
-.trust-strip span {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  color: var(--muted);
-  font-size: 11px;
-  line-height: 1.35;
-}
-
-.trust-strip strong {
-  color: var(--ink);
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.trust-strip a {
-  grid-column: 2;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  width: max-content;
-  border-bottom: 1px solid currentColor;
-  font-size: 11px;
-}
-
-.resources-section {
-  width: min(100% - 48px, 1380px);
-  margin: 120px auto;
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 100px;
-}
-
+.about-section h2,
 .resources-section h2,
 .support-section h2 {
   margin: 0;
@@ -723,6 +686,60 @@ img {
   font-weight: 510;
   letter-spacing: -0.055em;
   line-height: 1.02;
+}
+
+.about-copy > p {
+  max-width: 760px;
+  margin: 0;
+  color: #464843;
+  font-size: 18px;
+  line-height: 1.78;
+}
+
+.about-facts {
+  margin-top: 46px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.about-facts > div {
+  min-height: 96px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+.about-facts > div:first-child {
+  padding-right: 28px;
+  border-right: 1px solid var(--line);
+}
+
+.about-facts > div:last-child {
+  padding-left: 28px;
+}
+
+.about-facts span {
+  color: #777971;
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.about-facts strong {
+  color: var(--ink);
+  font-size: 20px;
+  font-weight: 550;
+}
+
+.resources-section {
+  margin: 120px auto;
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 100px;
 }
 
 .resource-list {
@@ -826,7 +843,7 @@ img {
 }
 
 .support-notes > div {
-  min-height: 120px;
+  min-height: 144px;
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
@@ -837,7 +854,7 @@ img {
 .support-notes span {
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 14px;
   color: #abadA6;
   font-size: 13px;
   line-height: 1.55;
@@ -847,6 +864,26 @@ img {
   color: #fff;
   font-size: 15px;
   font-weight: 550;
+}
+
+.support-notes address {
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: #abadA6;
+  font-style: normal;
+}
+
+.support-notes address a {
+  width: fit-content;
+  color: #fff;
+  transition: color 160ms ease;
+}
+
+.support-notes address a:hover,
+.support-notes address a:focus-visible {
+  color: #c9cbc5;
 }
 
 .site-footer {
@@ -976,17 +1013,13 @@ img {
     max-width: 560px;
   }
 
-  .trust-strip,
+  .about-section,
   .resources-section,
   .support-section {
     grid-template-columns: 1fr;
   }
 
-  .trust-strip > div:not(:last-child) {
-    border-right: 0;
-    border-bottom: 1px solid var(--line);
-  }
-
+  .about-section,
   .resources-section {
     gap: 55px;
     margin-block: 90px;
@@ -1010,6 +1043,7 @@ img {
   .header-inner,
   .hero-inner,
   .products-section,
+  .about-section,
   .resources-section,
   .support-section,
   .site-footer {
@@ -1103,6 +1137,30 @@ img {
 
   .resources-section {
     margin-block: 75px;
+  }
+
+  .about-section {
+    margin-block: 75px 0;
+    padding-block: 68px;
+  }
+
+  .about-copy > p {
+    font-size: 16px;
+    line-height: 1.72;
+  }
+
+  .about-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .about-facts > div:first-child {
+    padding-right: 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .about-facts > div:last-child {
+    padding-left: 0;
   }
 
   .support-section {

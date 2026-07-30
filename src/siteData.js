@@ -1,6 +1,12 @@
 export const siteData = {
   brandName: "esen",
   supportEmail: "support@example.com",
+  about: {
+    founded: "2015",
+    location: "Chiba, Japan",
+    description:
+      "Founded in 2015, ESEN is based in Chiba City, Chiba Prefecture, Japan. Since our founding, we have remained committed to professionalism, reliability, and continuous innovation, providing customers with high-quality products and services. We value every customer's needs and bring a rigorous approach to our work, supported by a comprehensive service system. By continually improving the customer experience and expanding into global markets, we strive to be a trusted long-term partner.",
+  },
   hero: {
     eyebrow: "Shopify themes & apps",
     title: "Everything your Shopify store needs.",
@@ -9,7 +15,7 @@ export const siteData = {
   },
   themes: [
     {
-      name: "Aurora",
+      name: "A",
       tagline: "Refined, editorial, and built to convert.",
       previewTitle: "Elegance in every detail",
       previewCopy: "Timeless styles for modern living.",

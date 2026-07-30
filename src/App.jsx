@@ -2,7 +2,6 @@ import { useState } from "react";
 import {
   ArrowRight,
   ArrowUpRight,
-  BagSimple,
   BookOpenText,
   CaretDown,
   Check,
@@ -12,19 +11,16 @@ import {
   EnvelopeSimple,
   Lifebuoy,
   List,
-  MonitorPlay,
-  ShieldCheck,
+  MapPin,
   ShoppingBagOpen,
-  Sparkle,
   TrendUp,
   X,
 } from "@phosphor-icons/react";
 import { siteData } from "./siteData.js";
 
 const navItems = [
-  { label: "Products", href: "#products", menu: ["All products", "Featured themes", "Shopify apps"] },
   { label: "Themes", href: "#themes", menu: ["Aurora", "Verde"] },
-  { label: "Apps", href: "#apps", menu: ["Quick Add to Cart"] },
+  { label: "About", href: "#about" },
   { label: "Resources", href: "#resources", menu: ["Documentation", "Changelog"] },
   { label: "Support", href: "#support" },
 ];
@@ -267,19 +263,36 @@ function Products() {
         <ThemeCard theme={siteData.themes[1]} dark />
         <AppCard app={siteData.apps[0]} />
       </div>
-      <div className="trust-strip">
-        <div>
-          <ShieldCheck size={31} weight="light" />
-          <span><strong>Shopify verified</strong>Built to Shopify standards and optimized for performance.</span>
-        </div>
-        <div>
-          <MonitorPlay size={31} weight="light" />
-          <span><strong>Try before you buy</strong>Explore live demos for every theme.</span>
-        </div>
-        <div>
-          <EnvelopeSimple size={31} weight="light" />
-          <span><strong>Need help?</strong>Our team is here over email.</span>
-          <a href="#support">Get support <ArrowRight size={15} /></a>
+    </section>
+  );
+}
+
+function About() {
+  const about = {
+    founded: "2015",
+    location: "Chiba, Japan",
+    description:
+      "Founded in 2015, ESEN is based in Chiba City, Chiba Prefecture, Japan. Since our founding, we have remained committed to professionalism, reliability, and continuous innovation, providing customers with high-quality products and services. We value every customer's needs and bring a rigorous approach to our work, supported by a comprehensive service system. By continually improving the customer experience and expanding into global markets, we strive to be a trusted long-term partner.",
+    ...siteData.about,
+  };
+
+  return (
+    <section className="about-section" id="about">
+      <div className="about-heading">
+        <span className="eyebrow">About ESEN</span>
+        <h2>Built on trust.<br />Growing beyond borders.</h2>
+      </div>
+      <div className="about-copy">
+        <p>{about.description}</p>
+        <div className="about-facts">
+          <div>
+            <span>Established</span>
+            <strong>{about.founded}</strong>
+          </div>
+          <div>
+            <span>Based in</span>
+            <strong>{about.location}</strong>
+          </div>
         </div>
       </div>
     </section>
@@ -294,12 +307,12 @@ function Resources() {
         <h2>Launch with clarity.<br />Grow with confidence.</h2>
       </div>
       <div className="resource-list">
-        <a href="#documentation">
+        <a href="https://esentheme.vercel.app/" target="_blank" rel="noreferrer">
           <BookOpenText size={28} weight="light" />
           <span><strong>Documentation</strong>Setup guides, feature walkthroughs, and practical answers.</span>
           <ArrowUpRight size={20} />
         </a>
-        <a href="#changelog">
+        <a href="https://esentheme.vercel.app/en/support" target="_blank" rel="noreferrer">
           <ClockCounterClockwise size={28} weight="light" />
           <span><strong>Changelog</strong>Follow improvements, fixes, and new releases.</span>
           <ArrowUpRight size={20} />
@@ -318,6 +331,13 @@ function Resources() {
 
 function Support() {
   const [copied, setCopied] = useState(false);
+  const company = {
+    name: "ESEN",
+    address: "1-12-6 Shinjuku, Chuo-ku, Chiba-shi, Chiba 260-0021, Japan",
+    phone: "+81 90 8722 7579",
+    phoneHref: "+819087227579",
+    ...siteData.company,
+  };
 
   const copyEmail = async () => {
     await navigator.clipboard.writeText(siteData.supportEmail);
@@ -349,8 +369,16 @@ function Support() {
         </div>
       </div>
       <div className="support-notes">
-        <div><Sparkle size={20} /><span><strong>What we cover</strong>Built-in product features, setup questions, and bugs in unmodified themes.</span></div>
-        <div><BagSimple size={20} /><span><strong>Before you write</strong>Include a link to the affected page and a screenshot when possible.</span></div>
+        <div className="company-contact">
+          <MapPin size={20} />
+          <span>
+            <strong>{company.name}</strong>
+            <address>
+              {company.address}
+              <a href={`tel:${company.phoneHref}`}>{company.phone}</a>
+            </address>
+          </span>
+        </div>
       </div>
     </section>
   );
@@ -364,6 +392,7 @@ function Footer() {
       <div>
         <a href="#themes">Themes</a>
         <a href="#apps">Apps</a>
+        <a href="#about">About</a>
         <a href="#resources">Resources</a>
         <a href="#support">Support</a>
       </div>
@@ -379,6 +408,7 @@ export function App() {
       <main>
         <Hero />
         <Products />
+        <About />
         <Resources />
         <Support />
       </main>
