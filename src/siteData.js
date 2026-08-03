@@ -15,11 +15,11 @@ export const siteData = {
   },
   themes: [
     {
-      name: "A",
+      name: "ESEN",
       tagline: "Refined, editorial, and built to convert.",
-      previewTitle: "Elegance in every detail",
-      previewCopy: "Timeless styles for modern living.",
-      image: "/assets/aurora-fashion.png",
+      previewTitle: "",
+      previewCopy: "",
+      image: "/assets/esen-hero-eccenova-v2.png",
       cta: "View on Shopify",
       href: "https://themes.shopify.com/",
     },

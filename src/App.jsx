@@ -5,7 +5,6 @@ import {
   BookOpenText,
   CaretDown,
   Check,
-  Circle,
   ClockCounterClockwise,
   CopySimple,
   EnvelopeSimple,
@@ -13,13 +12,12 @@ import {
   List,
   MapPin,
   ShoppingBagOpen,
-  TrendUp,
   X,
 } from "@phosphor-icons/react";
 import { siteData } from "./siteData.js";
 
 const navItems = [
-  { label: "Themes", href: "#themes", menu: ["Aurora", "Verde"] },
+  { label: "Themes", href: "#themes", menu: ["ESEN", "Verde"] },
   { label: "About", href: "#about" },
   { label: "Resources", href: "#resources", menu: ["Documentation", "Changelog"] },
   { label: "Support", href: "#support" },
@@ -110,7 +108,7 @@ function Header() {
           </div>
           <a
             className="button button-dark header-support"
-            href={`mailto:${siteData.supportEmail}?subject=Shopify%20product%20support`}
+            href="#support"
             onClick={closeMenus}
           >
             <EnvelopeSimple size={17} />
@@ -122,51 +120,47 @@ function Header() {
   );
 }
 
-function BrowserFrame({ children, className = "" }) {
-  return (
-    <div className={`browser-frame ${className}`}>
-      <div className="browser-bar" aria-hidden="true">
-        <span className="browser-dots">
-          <Circle size={7} weight="fill" />
-          <Circle size={7} weight="fill" />
-          <Circle size={7} weight="fill" />
-        </span>
-      </div>
-      {children}
-    </div>
-  );
-}
-
 function HeroPreview() {
   return (
-    <div className="hero-visual" aria-label="Theme preview and commerce insights">
-      <BrowserFrame className="hero-browser">
-        <div className="preview-shop-nav">
-          <span className="preview-shop-name">COVE</span>
-          <span>Shop</span>
-          <span>Best sellers</span>
-          <span>New in</span>
-          <span>Journal</span>
+    <div className="hero-visual">
+      <div className="hero-browser">
+        <div className="hero-browser-bar" aria-hidden="true">
+          <span />
+          <span />
+          <span />
         </div>
-        <div className="hero-product-shot">
-          <img src="/assets/hero-vase.png" alt="Ivory ceramic vase and bowl in a warm stone studio" />
-          <div className="hero-shot-copy">
-            <span>New collection</span>
-            <strong>Timeless design.<br />Made to last.</strong>
-            <span className="mini-button">Shop now</span>
-          </div>
+        <div className="hero-browser-canvas">
+          <img
+            className="hero-showcase"
+            src="/assets/esen-hero-eccenova-v2.png"
+            alt="Eccenova skincare storefront featuring the Everyday care, elevated campaign"
+            fetchPriority="high"
+            decoding="async"
+          />
         </div>
-      </BrowserFrame>
-      <div className="insight-card">
-        <span>Total sales</span>
-        <strong>$128,450</strong>
-        <span className="positive"><TrendUp size={14} weight="bold" /> 24% vs last 30 days</span>
-        <div className="insight-divider" />
-        <span>Top product</span>
-        <div className="top-product-row">
-          <img src="/assets/app-bottle.png" alt="" />
-          <span>Daily cleanser<br /><strong>$28.00</strong></span>
-        </div>
+
+        <aside className="hero-sales-card" aria-label="Example store sales performance">
+          <span className="sales-label">Total sales</span>
+          <strong>$100.00</strong>
+          <span className="sales-growth">
+            <svg viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M2 11.5 6.1 7.4l2.7 2.7L14 4.9" />
+              <path d="M10.4 4.9H14v3.6" />
+            </svg>
+            24% vs last 30 days
+          </span>
+          <span className="sales-divider" />
+          <span className="sales-label">Top product</span>
+          <span className="sales-product">
+            <span className="sales-product-image">
+              <img src="/assets/momonise-herbal-balm.png" alt="" />
+            </span>
+            <span>
+              Momonise
+              <strong>$100</strong>
+            </span>
+          </span>
+        </aside>
       </div>
     </div>
   );
@@ -191,20 +185,22 @@ function Hero() {
   );
 }
 
-function ThemeCard({ theme, dark = false }) {
+function ThemeCard({ theme, dark = false, sectionAnchor = false }) {
   return (
-    <article className="product-card theme-card" id={theme.name === "Aurora" ? "themes" : undefined}>
+    <article className="product-card theme-card" id={sectionAnchor ? "themes" : undefined}>
       <a className="theme-preview" href={theme.href} target="_blank" rel="noreferrer">
         <img src={theme.image} alt={`${theme.name} Shopify theme preview`} />
         <span className="theme-browser-nav">
           <strong>{theme.name.toUpperCase()}</strong>
           <span>Shop &nbsp; Collections &nbsp; Journal</span>
         </span>
-        <span className={dark ? "theme-overlay theme-overlay-dark" : "theme-overlay"}>
-          <strong>{theme.previewTitle}</strong>
-          <span>{theme.previewCopy}</span>
-          <span className="preview-cta">Shop collection</span>
-        </span>
+        {theme.previewTitle && (
+          <span className={dark ? "theme-overlay theme-overlay-dark" : "theme-overlay"}>
+            <strong>{theme.previewTitle}</strong>
+            <span>{theme.previewCopy}</span>
+            <span className="preview-cta">Shop collection</span>
+          </span>
+        )}
       </a>
       <span className="product-type">Theme</span>
       <h3>{theme.name}</h3>
@@ -259,7 +255,7 @@ function Products() {
         </a>
       </div>
       <div className="product-grid">
-        <ThemeCard theme={siteData.themes[0]} />
+        <ThemeCard theme={siteData.themes[0]} sectionAnchor />
         <ThemeCard theme={siteData.themes[1]} dark />
         <AppCard app={siteData.apps[0]} />
       </div>
@@ -307,12 +303,12 @@ function Resources() {
         <h2>Launch with clarity.<br />Grow with confidence.</h2>
       </div>
       <div className="resource-list">
-        <a href="https://esentheme.vercel.app/" target="_blank" rel="noreferrer">
+        <a href="https://docs.esentheme.com/" target="_blank" rel="noreferrer">
           <BookOpenText size={28} weight="light" />
           <span><strong>Documentation</strong>Setup guides, feature walkthroughs, and practical answers.</span>
           <ArrowUpRight size={20} />
         </a>
-        <a href="https://esentheme.vercel.app/en/support" target="_blank" rel="noreferrer">
+        <a href="https://docs.esentheme.com/en/support" target="_blank" rel="noreferrer">
           <ClockCounterClockwise size={28} weight="light" />
           <span><strong>Changelog</strong>Follow improvements, fixes, and new releases.</span>
           <ArrowUpRight size={20} />

@@ -262,97 +262,151 @@ img {
 }
 
 .hero-visual {
-  position: relative;
   min-height: 430px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  padding: 22px 0 22px 24px;
 }
-
-.browser-frame {
-  overflow: hidden;
-  background: #fff;
-  border: 1px solid #d7d7d3;
-  border-radius: 7px;
-  box-shadow: 0 18px 44px rgba(31, 32, 29, 0.12);
-}
-
-.browser-bar {
-  height: 22px;
-  display: flex;
-  align-items: center;
-  padding: 0 10px;
-  color: #b2b3af;
-  background: #181916;
-}
-
-.browser-dots {
-  display: flex;
-  gap: 4px;
-}
-
-.browser-dots svg:nth-child(1) { color: #d77263; }
-.browser-dots svg:nth-child(2) { color: #d2af61; }
-.browser-dots svg:nth-child(3) { color: #73a27c; }
 
 .hero-browser {
   position: relative;
-  width: min(92%, 760px);
-  margin-right: 24px;
+  width: 100%;
+  padding: 16px 26px 16px 16px;
+  background: #efefec;
+  border: 1px solid #dedfda;
+  border-radius: 7px;
+  box-shadow: 0 22px 52px rgba(31, 32, 29, 0.11);
 }
 
-.preview-shop-nav {
-  height: 43px;
+.hero-browser-bar {
+  height: 23px;
   display: flex;
   align-items: center;
-  gap: 18px;
-  padding: 0 22px;
-  color: #65665f;
-  background: #f7f6f2;
-  font-size: 9px;
+  gap: 5px;
+  padding: 0 12px;
+  background: #191a18;
+  border-radius: 5px 5px 0 0;
 }
 
-.preview-shop-name {
-  margin-right: auto;
-  color: #191a17;
-  font-family: Georgia, serif;
-  font-size: 18px;
-  letter-spacing: 0.08em;
+.hero-browser-bar span {
+  width: 6px;
+  height: 6px;
+  background: #ec725e;
+  border-radius: 50%;
 }
 
-.hero-product-shot {
-  position: relative;
-  height: 320px;
+.hero-browser-bar span:nth-child(2) {
+  background: #d8b75d;
+}
+
+.hero-browser-bar span:nth-child(3) {
+  background: #67a981;
+}
+
+.hero-browser-canvas {
   overflow: hidden;
+  background: #263711;
+  border-radius: 0 0 5px 5px;
 }
 
-.hero-product-shot img {
+.hero-showcase {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
+  object-position: center;
 }
 
-.hero-shot-copy {
+.hero-sales-card {
   position: absolute;
-  left: 28px;
-  top: 70px;
+  z-index: 2;
+  top: 50%;
+  right: -9px;
+  width: 146px;
+  padding: 17px 15px 14px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
-  color: #1a1b18;
+  color: #282a25;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(213, 214, 209, 0.9);
+  border-radius: 6px;
+  box-shadow: 0 16px 34px rgba(20, 21, 18, 0.16);
+  transform: translateY(-39%);
+  backdrop-filter: blur(8px);
 }
 
-.hero-shot-copy > span:first-child {
-  font-size: 10px;
+.hero-sales-card > strong {
+  margin-top: 4px;
+  font-size: 17px;
+  font-weight: 680;
+  letter-spacing: -0.025em;
 }
 
-.hero-shot-copy strong {
-  max-width: 240px;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 31px;
-  font-weight: 400;
-  line-height: 1.03;
+.sales-label {
+  color: #656861;
+  font-size: 8px;
+}
+
+.sales-growth {
+  margin-top: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  color: #347d51;
+  font-size: 7px;
+  white-space: nowrap;
+}
+
+.sales-growth svg {
+  width: 11px;
+  height: 11px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.sales-divider {
+  height: 1px;
+  margin: 12px 0 10px;
+  background: #dedfda;
+}
+
+.sales-product {
+  margin-top: 7px;
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  align-items: center;
+  gap: 8px;
+  font-size: 7px;
+  line-height: 1.25;
+}
+
+.sales-product-image {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #eeefeb;
+}
+
+.sales-product-image img {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+}
+
+.sales-product > span:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.sales-product strong {
+  color: #151613;
+  font-size: 8px;
 }
 
 .mini-button {
@@ -365,60 +419,6 @@ img {
   background: #141512;
   border-radius: 3px;
   font-size: 9px;
-}
-
-.insight-card {
-  position: absolute;
-  top: 116px;
-  right: 0;
-  width: 142px;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  color: #6b6d66;
-  background: #fff;
-  border: 1px solid #e1e2de;
-  border-radius: 6px;
-  box-shadow: 0 16px 32px rgba(22, 23, 20, 0.13);
-  font-size: 9px;
-}
-
-.insight-card > strong {
-  color: var(--ink);
-  font-size: 15px;
-}
-
-.positive {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  color: #4f8a63;
-}
-
-.insight-divider {
-  height: 1px;
-  margin: 6px 0;
-  background: #e4e5e1;
-}
-
-.top-product-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: #55574f;
-  line-height: 1.35;
-}
-
-.top-product-row img {
-  width: 26px;
-  height: 35px;
-  object-fit: contain;
-}
-
-.top-product-row strong {
-  color: var(--ink);
-  font-weight: 600;
 }
 
 .products-section {
@@ -917,8 +917,9 @@ img {
   .nav-items { gap: 18px; }
   .main-nav { gap: 18px; margin-left: 8px; }
   .hero-inner { grid-template-columns: 42% 58%; }
-  .hero-browser { width: 96%; margin-right: 0; }
-  .insight-card { right: -6px; }
+  .hero-visual { padding-left: 12px; }
+  .hero-browser { padding-right: 20px; }
+  .hero-sales-card { right: -6px; width: 136px; }
   .theme-preview,
   .app-preview { height: 210px; }
   .theme-overlay > strong { font-size: 21px; }
@@ -994,6 +995,14 @@ img {
 
   .hero-visual {
     min-height: 390px;
+    padding-left: 0;
+  }
+
+  .hero-browser { padding-right: 30px; }
+
+  .hero-sales-card {
+    right: -4px;
+    width: 150px;
   }
 
   .product-grid {
@@ -1068,41 +1077,39 @@ img {
   }
 
   .hero-visual {
-    min-height: 325px;
+    min-height: 0;
+    padding: 24px 0 8px;
   }
 
   .hero-browser {
-    width: 100%;
+    padding: 10px 18px 10px 10px;
   }
 
-  .preview-shop-nav {
-    gap: 7px;
-    padding-inline: 12px;
-    font-size: 7px;
+  .hero-browser-bar {
+    height: 18px;
+    padding-inline: 8px;
   }
 
-  .preview-shop-name {
+  .hero-browser-bar span {
+    width: 5px;
+    height: 5px;
+  }
+
+  .hero-sales-card {
+    top: auto;
+    right: -2px;
+    bottom: 18px;
+    width: 126px;
+    padding: 12px;
+    transform: none;
+  }
+
+  .hero-sales-card > strong {
     font-size: 14px;
   }
 
-  .hero-product-shot {
-    height: 240px;
-  }
-
-  .hero-shot-copy {
-    left: 18px;
-    top: 47px;
-  }
-
-  .hero-shot-copy strong {
-    font-size: 24px;
-  }
-
-  .insight-card {
-    top: 86px;
-    right: -10px;
-    width: 115px;
-    padding: 11px;
+  .sales-divider {
+    margin-block: 8px;
   }
 
   .section-heading-row {
