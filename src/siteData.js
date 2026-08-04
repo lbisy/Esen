@@ -1,6 +1,6 @@
 export const siteData = {
   brandName: "esen",
-  supportEmail: "support@example.com",
+  supportEmail: "info@esentheme.com",
   about: {
     founded: "2015",
     location: "Chiba, Japan",
@@ -15,7 +15,7 @@ export const siteData = {
   },
   themes: [
     {
-      name: "ESEN",
+      name: "Ceylune",
       tagline: "Refined, editorial, and built to convert.",
       previewTitle: "",
       previewCopy: "",
