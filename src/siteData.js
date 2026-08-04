@@ -15,7 +15,7 @@ export const siteData = {
   },
   themes: [
     {
-      name: "ESEN",
+      name: "Ceylune",
       tagline: "Refined, editorial, and built to convert.",
       previewTitle: "",
       previewCopy: "",
