@@ -1018,6 +1018,11 @@ img {
     border-top: 1px solid var(--line);
   }
 
+  .product-grid > .product-card:only-child {
+    grid-column: auto;
+    border-top: 0;
+  }
+
   .app-preview {
     max-width: 560px;
   }

@@ -15,7 +15,7 @@ export const siteData = {
   },
   themes: [
     {
-      name: "Ceylune",
+      name: "ESEN",
       tagline: "Refined, editorial, and built to convert.",
       previewTitle: "",
       previewCopy: "",
@@ -23,23 +23,23 @@ export const siteData = {
       cta: "View on Shopify",
       href: "https://themes.shopify.com/",
     },
-    {
-      name: "Verde",
-      tagline: "Clean, immersive, and performance-driven.",
-      previewTitle: "Sustainable by design.",
-      previewCopy: "Thoughtful pieces for a better everyday.",
-      image: "/assets/verde-skincare.png",
-      cta: "View live demo",
-      href: "https://themes.shopify.com/themes",
-    },
+    // {
+    //   name: "Verde",
+    //   tagline: "Clean, immersive, and performance-driven.",
+    //   previewTitle: "Sustainable by design.",
+    //   previewCopy: "Thoughtful pieces for a better everyday.",
+    //   image: "/assets/verde-skincare.png",
+    //   cta: "View live demo",
+    //   href: "https://themes.shopify.com/themes",
+    // },
   ],
-  apps: [
-    {
-      name: "Quick Add to Cart",
-      tagline: "Let customers add more, faster.",
-      image: "/assets/app-bottle.png",
-      cta: "View on Shopify",
-      href: "https://apps.shopify.com/",
-    },
-  ],
+  // apps: [
+  //   {
+  //     name: "Quick Add to Cart",
+  //     tagline: "Let customers add more, faster.",
+  //     image: "/assets/app-bottle.png",
+  //     cta: "View on Shopify",
+  //     href: "https://apps.shopify.com/",
+  //   },
+  // ],
 };

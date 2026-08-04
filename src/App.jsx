@@ -17,7 +17,11 @@ import {
 import { siteData } from "./siteData.js";
 
 const navItems = [
-  { label: "Themes", href: "#themes", menu: ["ESEN", "Verde"] },
+  {
+    label: "Themes",
+    href: "#themes",
+    menu: (siteData.themes ?? []).map((theme) => theme.name),
+  },
   { label: "About", href: "#about" },
   { label: "Resources", href: "#resources", menu: ["Documentation", "Changelog"] },
   { label: "Support", href: "#support" },
@@ -213,9 +217,9 @@ function ThemeCard({ theme, dark = false, sectionAnchor = false }) {
   );
 }
 
-function AppCard({ app }) {
+function AppCard({ app, sectionAnchor = false }) {
   return (
-    <article className="product-card app-card" id="apps">
+    <article className="product-card app-card" id={sectionAnchor ? "apps" : undefined}>
       <a className="app-preview" href={app.href} target="_blank" rel="noreferrer">
         <div className="app-controls">
           <span className="app-preview-title"><ShoppingBagOpen size={17} /> Quick Add to Cart</span>
@@ -245,19 +249,31 @@ function AppCard({ app }) {
 }
 
 function Products() {
+  const themes = siteData.themes ?? [];
+  const apps = siteData.apps ?? [];
+  const productsAnchor = themes.length > 0 ? "#themes" : apps.length > 0 ? "#apps" : "#products";
+
   return (
     <section className="products-section" id="products">
       <div className="section-heading-row">
         <h2>Made for modern commerce</h2>
-        <a className="text-link" href="#themes">
+        <a className="text-link" href={productsAnchor}>
           View all products
           <ArrowRight size={17} />
         </a>
       </div>
       <div className="product-grid">
-        <ThemeCard theme={siteData.themes[0]} sectionAnchor />
-        <ThemeCard theme={siteData.themes[1]} dark />
-        <AppCard app={siteData.apps[0]} />
+        {themes.map((theme, index) => (
+          <ThemeCard
+            key={theme.name}
+            theme={theme}
+            dark={index > 0}
+            sectionAnchor={index === 0}
+          />
+        ))}
+        {apps.map((app, index) => (
+          <AppCard key={app.name} app={app} sectionAnchor={index === 0} />
+        ))}
       </div>
     </section>
   );
@@ -386,8 +402,8 @@ function Footer() {
       <BrandLogo />
       <p>Shopify themes and apps, thoughtfully made.</p>
       <div>
-        <a href="#themes">Themes</a>
-        <a href="#apps">Apps</a>
+        {siteData.themes?.length > 0 && <a href="#themes">Themes</a>}
+        {siteData.apps?.length > 0 && <a href="#apps">Apps</a>}
         <a href="#about">About</a>
         <a href="#resources">Resources</a>
         <a href="#support">Support</a>

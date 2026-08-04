@@ -23,3 +23,5 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 - In the homepage hero sales insight card, show the Momonise herbal balm product with its pale green balm jar, natural wood lid, and “HERBAL BALM” label; display the product name as “Momonise” and the price as “$100”.
 - In the Products section, use the Eccenova “Everyday care, elevated.” artwork for the first theme card and name that theme “ESEN”; do not overlay the former Aurora campaign copy on this artwork.
 - Make the header “Get support” button scroll to the Support section near the bottom of the page instead of opening an email message.
+- In the Products section, show only the ESEN theme card; omit the Verde theme and the Quick Add to Cart app.
+- Keep the lone ESEN product card at the original multi-column card dimensions on desktop and tablet; do not stretch it across the full product row.
